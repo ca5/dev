@@ -14,6 +14,8 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'Shougo/vimproc.vim'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'vim-scripts/visSum.vim'
 filetype on
 
 
@@ -47,7 +49,6 @@ inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
-
 " Other Settings
 """"""""""""""""""""""""""
 syntax on
@@ -57,6 +58,7 @@ set enc=utf-8
 set termencoding=utf-8
 set fileencodings=utf-8,euc-jp
 set number
+set mouse=a
 
 set expandtab
 set ts=4
