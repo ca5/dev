@@ -16,6 +16,7 @@ NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'Shougo/vimproc.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'vim-scripts/visSum.vim'
+NeoBundle 'davidhalter/jedi-vim'
 filetype on
 
 
