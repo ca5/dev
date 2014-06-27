@@ -1,3 +1,4 @@
+""""""""""""""""""""""""""
 " Neobundle
 """"""""""""""""""""""""""
 set nocompatible
@@ -20,6 +21,7 @@ NeoBundle 'davidhalter/jedi-vim'
 filetype on
 
 
+""""""""""""""""""""""""""
 " Neobundle Packages
 """"""""""""""""""""""""""
 "indent-guides
@@ -50,6 +52,14 @@ inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
+"jedi-vim
+"if g:jedi#popup_on_dot
+"  inoremap <buffer> ..<C-R>=jedi#do_popup_on_dot() ? "\<lt>C-X>\<lt>C-O>\<lt>C-P>" : ""<CR>
+"end
+let g:jedi#popup_on_dot = 0
+
+
+""""""""""""""""""""""""""
 " Other Settings
 """"""""""""""""""""""""""
 syntax on
@@ -74,3 +84,9 @@ hi PmenuSel ctermbg=1
 hi PMenuSbar ctermbg=4
 command! Cal Calendar -view=day -split=vertical -width 10 
 command! Clock Calendar -view=clock -split=horizontal -width 10 
+command! Vsh VimShellPop -toggle
+
+""for works
+let $PATH = "/home/logs/env_batch/". $PATH
+
+""for private
