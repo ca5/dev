@@ -83,6 +83,7 @@ colorscheme default
 hi Pmenu ctermbg=4
 hi PmenuSel ctermbg=1
 hi PMenuSbar ctermbg=4
+hi Search term=reverse ctermbg=13 guibg=Yellow
 command! Cal Calendar -view=day -split=vertical -width 10 
 command! Clock Calendar -view=clock -split=horizontal -width 10 
 command! Vsh VimShellPop -toggle
