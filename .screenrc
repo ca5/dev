@@ -1,0 +1,28 @@
+helltitle "$ |bash"
+cjkwidth on
+#hardstatus alwayslastline "%y/%m/%d(%D) [%02c]: %-w%{=b bw}%n %t%{-}%+w"
+hardstatus alwayslastline "%y/%m/%d [%02c]: %-w%{=b bw}%n %t%{-}%+w"
+#hardstatus alwayslastline "%y/%m/%d(%D)[%02c] %{=b wm}%02c"
+bind s
+bind ^U encoding utf8
+bind ^E encoding EUC
+bind ^S encoding SJIS
+escape ^Zz    # Ctrl + z
+defencoding utf8
+encoding utf8 utf8
+termcap  facit|vt100|xterm LP:G0
+terminfo facit|vt100|xterm LP:G0
+bindkey -k f0 select 0
+bindkey -k f1 select 1
+bindkey -k f2 select 2
+bindkey -k f3 select 3
+bindkey -k f4 select 4
+bindkey -k f5 select 5
+bindkey -k f6 select 6
+bindkey -k f7 select 7
+bindkey -k f8 select 8
+bindkey -k f9 select 9
+
+termcapinfo xterm* 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+defscrollback 40000
+#mousetrack on
