@@ -18,6 +18,7 @@ NeoBundle 'Shougo/vimproc.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'vim-scripts/visSum.vim'
 NeoBundle 'davidhalter/jedi-vim'
+NeoBundle 'plasticboy/vim-markdown'
 filetype on
 
 
@@ -85,6 +86,8 @@ hi PMenuSbar ctermbg=4
 command! Cal Calendar -view=day -split=vertical -width 10 
 command! Clock Calendar -view=clock -split=horizontal -width 10 
 command! Vsh VimShellPop -toggle
+" md as markdown, instead of modula2
+autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 
 ""for works
 let $PATH = "/home/logs/env_batch/". $PATH
