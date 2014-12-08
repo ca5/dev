@@ -19,6 +19,9 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'vim-scripts/visSum.vim'
 NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'ujihisa/vimshell-ssh'
+NeoBundle 'python_fold'
+NeoBundle 'fuenor/qfixhowm'
 filetype on
 
 
@@ -58,6 +61,16 @@ inoremap <expr><C-e>  neocomplcache#cancel_popup()
 "  inoremap <buffer> ..<C-R>=jedi#do_popup_on_dot() ? "\<lt>C-X>\<lt>C-O>\<lt>C-P>" : ""<CR>
 "end
 let g:jedi#popup_on_dot = 0
+
+"QFixHowm
+let howm_dir = '~/memo'
+let howm_filename = '%Y/%m/%Y-%m-%d-%H%M%S.md'
+let QFixHowm_FileType = 'markdown'
+let howm_fileencoding    = 'utf-8'
+let howm_fileformat      = 'unix'
+let QFixHowm_Title = '#'
+let QFixHowm_Key = 'g'
+
 
 
 """"""""""""""""""""""""""
