@@ -64,12 +64,16 @@ let g:jedi#popup_on_dot = 0
 
 "QFixHowm
 let howm_dir = '~/memo'
-let howm_filename = '%Y/%m/%Y-%m-%d-%H%M%S.md'
+"let howm_filename = '%Y/%m/%Y-%m-%d-%H%M%S.md'
+"let QFixHowm_GenerateFile = '%Y-%m-%d-%H%M%S.md'
+"let qfixmemo_diary     = 'diary/%Y/%m/%Y-%m-%d.md'
+let QFixHowm_FoldingPattern = '^[#+] .*'
 let QFixHowm_FileType = 'markdown'
 let howm_fileencoding    = 'utf-8'
 let howm_fileformat      = 'unix'
 let QFixHowm_Title = '#'
 let QFixHowm_Key = 'g'
+let GoogleCL = 'google'
 
 
 
