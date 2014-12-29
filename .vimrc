@@ -63,7 +63,7 @@ inoremap <expr><C-e>  neocomplcache#cancel_popup()
 let g:jedi#popup_on_dot = 0
 
 "QFixHowm
-let howm_dir = '~/memo'
+let howm_dir = '~/qfixmemo/data'
 "let howm_filename = '%Y/%m/%Y-%m-%d-%H%M%S.md'
 "let QFixHowm_GenerateFile = '%Y-%m-%d-%H%M%S.md'
 "let qfixmemo_diary     = 'diary/%Y/%m/%Y-%m-%d.md'
