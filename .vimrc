@@ -22,6 +22,11 @@ NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'ujihisa/vimshell-ssh'
 NeoBundle 'python_fold'
 NeoBundle 'fuenor/qfixhowm'
+NeoBundle 'vim-scripts/taglist.vim'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'thinca/vim-ref'
+
 filetype on
 
 
@@ -75,6 +80,31 @@ let QFixHowm_Title = '#'
 let QFixHowm_Key = 'g'
 let GoogleCL = 'google'
 
+"taglist
+"set tags = tags
+let Tlist_Ctags_Cmd = "/usr/local/Cellar/ctags/5.8/bin/ctags"
+let Tlist_Show_One_File = 1
+let Tlist_Use_Right_Window = 1
+let Tlist_Exit_OnlyWindow = 1
+"map <silent> <leader>l :TlistToggle<CR>
+
+"pep8
+let g:syntastic_python_checkers = ['pyflakes', 'pep8']
+
+"vim-ref
+"Ref webdictでalcを使う設定
+let g:ref_source_webdict_cmd = 'lynx -dump -nonumbers %s'
+"let g:ref_source_webdict_use_cache = 1
+let g:ref_source_webdict_sites = {
+            \ 'alc' : {
+            \   'url' : 'http://eow.alc.co.jp/%s/UTF-8/'
+            \   }
+            \ }
+function! g:ref_source_webdict_sites.alc.filter(output)
+      return join(split(a:output, "\n")[42 :], "\n")
+endfunction
+
+
 
 
 """"""""""""""""""""""""""
@@ -106,6 +136,7 @@ command! Clock Calendar -view=clock -split=horizontal -width 10
 command! Vsh VimShellPop -toggle
 " md as markdown, instead of modula2
 autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+set incsearch
 
 ""for works
 let $PATH = "/home/logs/env_batch/". $PATH
