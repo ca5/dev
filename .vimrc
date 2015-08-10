@@ -7,7 +7,10 @@ if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
   call neobundle#rc(expand('~/.vim/bundle/'))
 endif
-NeoBundle 'Shougo/neobundle.vim'
+
+call neobundle#begin(expand('~/.vim/bundle/'))
+NeoBundleFetch 'Shougo/neobundle.vim'
+
 NeoBundle 'kannokanno/previm'
 NeoBundle 'itchyny/calendar.vim'
 NeoBundle 'Shougo/neocomplcache'
@@ -28,8 +31,12 @@ NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'heavenshell/vim-slack'
 NeoBundle 'mattn/webapi-vim'
+call neobundle#end()
+filetype plugin indent on
+
 
 filetype on
+let g:neobundle#log_filename = $HOME . "/neobundle.log"
 
 
 """"""""""""""""""""""""""
