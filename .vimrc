@@ -11,7 +11,7 @@ NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'itchyny/calendar.vim'
 NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'Shougo/neocomplete'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'Shougo/vimproc.vim'
@@ -26,6 +26,8 @@ NeoBundle 'vim-scripts/taglist.vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'thinca/vim-ref'
+NeoBundle 'heavenshell/vim-slack'
+NeoBundle 'mattn/webapi-vim'
 
 filetype on
 
@@ -42,30 +44,64 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#555555 ctermbg=234
 let g:indent_guides_guide_size = 1
 
 "neocomplcache
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default' : ''
-        \ }
-inoremap <expr><C-g>     neocomplcache#undo_completion()
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return neocomplcache#smart_close_popup() . "\<CR>"
-endfunction
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplcache#close_popup()
-inoremap <expr><C-e>  neocomplcache#cancel_popup()
+"let g:neocomplcache_enable_at_startup = 1
+"let g:neocomplcache_enable_smart_case = 1
+"let g:neocomplcache_min_syntax_length = 3
+"let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+"let g:neocomplcache_dictionary_filetype_lists = {
+"    \ 'default' : ''
+"        \ }
+"inoremap <expr><C-g>     neocomplcache#undo_completion()
+"inoremap <expr><C-l>     neocomplcache#complete_common_string()
+"inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+"function! s:my_cr_function()
+"  return neocomplcache#smart_close_popup() . "\<CR>"
+"endfunction
+"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+"inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+"inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+"inoremap <expr><C-y>  neocomplcache#close_popup()
+"inoremap <expr><C-e>  neocomplcache#cancel_popup()
+
+
+
 
 "jedi-vim
 "if g:jedi#popup_on_dot
 "  inoremap <buffer> ..<C-R>=jedi#do_popup_on_dot() ? "\<lt>C-X>\<lt>C-O>\<lt>C-P>" : ""<CR>
 "end
-let g:jedi#popup_on_dot = 0
+"let g:jedi#popup_on_dot = 0
+"let g:jedi#show_function_definition = 0
+
+"autocmd FileType python setlocal omnifunc=jedi#completions
+"let g:jedi#auto_vim_configuration = 0
+"if !exists('g:neocomplete#force_omni_input_patterns')
+"        let g:neocomplete#force_omni_input_patterns = {}
+"endif
+"let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
+
+"neocomplete
+let g:neocomplete_enable_at_startup = 1
+let g:neocomplete_enable_smart_case = 1
+let g:neocomplete_min_syntax_length = 3
+let g:neocomplete_lock_buffer_name_pattern = '\*ku\*'
+let g:neocomplete_dictionary_filetype_lists = {
+    \ 'default' : ''
+        \ }
+
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return neocomplete#smart_close_popup() . "\<CR>"
+endfunction
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplete#close_popup()
+inoremap <expr><C-e>  neocomplete#cancel_popup()
+
+
 
 "QFixHowm
 let howm_dir = '~/qfixmemo/data'
@@ -91,6 +127,7 @@ let Tlist_Exit_OnlyWindow = 1
 "pep8
 let g:syntastic_python_checkers = ['pyflakes', 'pep8']
 
+
 "vim-ref
 "Ref webdictでalcを使う設定
 let g:ref_source_webdict_cmd = 'lynx -dump -nonumbers %s'
@@ -103,6 +140,9 @@ let g:ref_source_webdict_sites = {
 function! g:ref_source_webdict_sites.alc.filter(output)
       return join(split(a:output, "\n")[42 :], "\n")
 endfunction
+
+"slack
+let g:slack_incoming_token = 'xoxp-2665969857-2666572175-3756101063-46e00c'
 
 
 
@@ -123,7 +163,7 @@ set expandtab
 set ts=4
 set shiftwidth=4
 set hlsearch
-setlocal omnifunc=syntaxcomplete#Complete
+"setlocal omnifunc=syntaxcomplete#Complete
 setlocal formatoptions-=ro
 set t_Co=256
 colorscheme default
@@ -142,3 +182,5 @@ set incsearch
 let $PATH = "/home/logs/env_batch/". $PATH
 
 ""for private
+
+let g:neocomplete_enable_at_startup = 1
