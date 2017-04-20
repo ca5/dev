@@ -2,7 +2,7 @@ helltitle "$ |bash"
 cjkwidth on
 #hardstatus alwayslastline "%y/%m/%d(%D) [%02c]: %-w%{=b bw}%n %t%{-}%+w"
 hardstatus alwayslastline "%y/%m/%d [%02c]: %-w%{=b bw}%n %t%{-}%+w"
-#hardstatus alwayslastline "%y/%m/%d(%D)[%02c] %{=b wm}%02c"
+#hardstatus alwayslastline "%y/%m/%d(%D)[%02c] %{=y wm}%02c"
 bind s
 bind ^U encoding utf8
 bind ^E encoding EUC

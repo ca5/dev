@@ -1,2 +1,3 @@
-colorscheme desert
+set background=dark
+colorscheme solarized
 set transparency=10 

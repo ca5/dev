@@ -31,6 +31,7 @@ NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'heavenshell/vim-slack'
 NeoBundle 'mattn/webapi-vim'
+NeoBundle 'altercation/vim-colors-solarized'
 call neobundle#end()
 filetype plugin indent on
 
@@ -163,8 +164,8 @@ syntax on
 set enc=utf-8
 set termencoding=utf-8
 set fileencodings=utf-8,euc-jp
-set number
-set mouse=a
+"set number
+"set mouse=a
 
 set expandtab
 set ts=4
